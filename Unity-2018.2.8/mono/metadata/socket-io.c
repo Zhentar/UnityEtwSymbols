@@ -69,13 +69,14 @@
 
 #include "mono/io-layer/socket-wrappers.h"
 
-#ifdef PLATFORM_WIN32
+//#ifdef PLATFORM_WIN32
 // Provide an implementation of the missing inet_ntop function on Windows so that
 // we can get proper IPv6 support.
-#undef HAVE_INET_NTOP
-#else
+//#undef HAVE_INET_NTOP
+//#else
 #define HAVE_INET_NTOP
-#endif
+#define HAVE_INET_PTON
+//#endif
 
 #ifndef HAVE_INET_NTOP
 static char* inet_ntop(int af, const void* src, char* dst, size_t size);
